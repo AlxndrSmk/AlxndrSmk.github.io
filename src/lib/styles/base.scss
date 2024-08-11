@@ -1,0 +1,131 @@
+@import './animations.scss';
+
+.c-drawer {
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  &.open {
+    z-index: 10000;
+    .c-drawer__content {
+      bottom: -93px;
+      z-index: 9999;
+
+      &.in-popup {
+        bottom: 0;
+      }
+    }
+    .c-drawer__overlay {
+      opacity: 0.7;
+      z-index: 5;
+      z-index: 9999;
+    }
+  }
+  &.open-full {
+    z-index: 10000;
+    .c-drawer__content {
+      bottom: 0;
+    }
+    .c-drawer__overlay {
+      opacity: 0.7;
+      z-index: 5;
+    }
+  }
+  &__header {
+    padding: 0 !important;
+    border-radius: 45px 45px 0px 0px;
+
+    &-reactangle {
+      width: 47px;
+      height: 6px;
+      background: #d9d9d9;
+      border-radius: 3px;
+    }
+    &-close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      position: absolute;
+      right: 25px;
+      top: 10px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(2.5px);
+      border-radius: 16px;
+      z-index: 3;
+    }
+  }
+  &__content {
+    background: none !important;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -100vh;
+    z-index: 100;
+    transition: all 0.3s ease-out;
+  }
+  &__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: black;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.press-animation {
+  transition: transform 0.1s ease-in-out;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+html {
+  font-size: 16px;
+
+  @media only screen and (max-height: 812px) {
+    /* iPhone 13 mini */
+    font-size: 16px;
+  }
+
+  @media only screen and (min-height: 852px) {
+    /* iPhone 15 */
+    font-size: 18px;
+  }
+
+  @media only screen and (min-height: 932px) {
+    /* iPhone 15 Pro Max */
+    font-size: 20px;
+  }
+}
+
+// Размер текстов
+.common {
+  &-title {
+    font-size: 1.5rem;
+  }
+  &-text {
+    font-size: 0.875rem;
+  }
+  &-label {
+    font-size: 0.625rem;
+  }
+}
+
+.non-clickable {
+  pointer-events: none;
+}

@@ -1,0 +1,16 @@
+.c-error {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+
+  &__text {
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+}
